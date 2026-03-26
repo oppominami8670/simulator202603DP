@@ -151,7 +151,7 @@
         <select class="plan-sel"></select><select class="data-sel" disabled></select>
         
         <div class="disc-area">
-            <div class="section-label">▼ 適用割引（最大3つ）</div>
+            <div class="section-label">▼ 適用割引（最大5つ）</div>
             <div class="disc-select-wrapper"></div>
         </div>
 
@@ -231,7 +231,7 @@ class SimulatorInstance {
     setupCarrier() {
         this.dom.carrier.innerHTML = '<option value="">キャリア選択</option>';
         Object.keys(GLOBAL_DATA).forEach(c => this.dom.carrier.appendChild(new Option(c, c)));
-        for(let i=0; i<3; i++) {
+        for(let i=0; i<5; i++) {
             const s = document.createElement('select');
             s.onchange = (e) => { 
                 if(e.target.value !== "0") e.target.classList.add('has-val');
