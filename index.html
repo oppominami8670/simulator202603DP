@@ -132,7 +132,7 @@
     <div class="sim-card">
         <button class="remove-btn">×</button>
         <div class="badge-area">
-            <div class="badge badge-senior" style="background:#fff3cd; color:#856404; border:1px solid #ffeeba;">★シニア限定：4点同時契約割引適用中！</div>
+            <div class="badge badge-senior" style="background:#fff3cd; color:#856404; border:1px solid #ffeeba;">★シニア限定：3点同時契約割引適用中！</div>
             <div class="badge badge-child" style="background:#d1ecf1; color:#0c5460; border:1px solid #bee5eb;">最強こども割適用中</div>
         </div>
 
@@ -476,15 +476,15 @@ class SimulatorInstance {
             if (selectedDiscNames.some(t => t.includes('こども'))) showC = true;
             const isSenior = selectedDiscNames.some(t => t.includes('シニア'));
             const optK = Array.from(this.selectedOpts.keys());
-            if (isSenior && optK.some(n=>/通話/.test(n)) && optK.some(n=>/操作サポート/.test(n)) && optK.some(n=>/ノートン/.test(n)) && optK.some(n=>/Whoscall/.test(n))) {
-                bonusTotal -= 1100; showS = true;
+            if (isSenior && optK.some(n=>/通話/.test(n)) && optK.some(n=>/操作サポート/.test(n))  && optK.some(n=>/Whoscall/.test(n))) {
+                bonusTotal -= 880; showS = true;
             }
         }
         this.dom.badgeSenior.style.display = showS ? 'block' : 'none';
         this.dom.badgeChild.style.display = showC ? 'block' : 'none';
 
         const finalDisc1 = baseDisc1 + bonusTotal;
-        const finalDisc2 = baseDisc2 + (showS ? -1100 : 0);
+        const finalDisc2 = baseDisc2 + (showS ? -880 : 0);
 
         this.el.querySelector('.res-plan').textContent = planP.toLocaleString();
         this.el.querySelector('.res-plan2').textContent = planP.toLocaleString();
